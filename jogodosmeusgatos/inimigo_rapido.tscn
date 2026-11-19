@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dud5hagwp47x6"]
+
+[ext_resource type="Script" uid="uid://blneul21lcr61" path="res://scriptsGD/inimigo.gd" id="1_gk5ec"]
+[ext_resource type="Texture2D" uid="uid://r6rjpolwaler" path="res://imagens/baratamorta.png" id="2_g0ddr"]
+[ext_resource type="Texture2D" uid="uid://c2d5jc7bejewb" path="res://imagens/barataenemy.png" id="2_gk5ec"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
+radius = 20.0
+
+[node name="inimigo" type="PathFollow2D" unique_id=603452592]
+rotates = false
+loop = false
+script = ExtResource("1_gk5ec")
+velocidade = 160.0
+vida = 15
+recompensa = 8
+frente = 3
+textura_morto = ExtResource("2_g0ddr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1996225523]
+modulate = Color(1, 0, 0.5803922, 1)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_gk5ec")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=196013570 groups=["inimigos"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=398292088 groups=["inimigos"]]
+shape = SubResource("CircleShape2D_u0ya7")

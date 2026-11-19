@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c4oou3oue8kfd"]
+
+[ext_resource type="PackedScene" uid="uid://cp043jpg6jko8" path="res://inimigo.tscn" id="1_2jh14"]
+[ext_resource type="PackedScene" uid="uid://chkycic2osqkg" path="res://torre.tscn" id="1_70f7c"]
+[ext_resource type="Script" uid="uid://iorhjwu8e7nt" path="res://scriptsGD/mapa.gd" id="1_q8ihy"]
+[ext_resource type="PackedScene" uid="uid://dud5hagwp47x6" path="res://inimigo_rapido.tscn" id="3_5d3jg"]
+[ext_resource type="Script" uid="uid://dxf84n2aqjqp8" path="res://scriptsGD/hud.gd" id="4_lrjei"]
+[ext_resource type="PackedScene" uid="uid://2xao38n0h12" path="res://inimigoboss.tscn" id="5_auc41"]
+[ext_resource type="Texture2D" uid="uid://bhca0u5cxo026" path="res://mapadosgastos.png" id="5_wan0n"]
+
+[sub_resource type="Curve2D" id="Curve2D_wan0n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 150, 110, 0, 0, 0, 0, 437, 114, 0, 0, 0, 0, 448, 483, 0, 0, 0, 0, 739, 483, 0, 0, 0, 0, 737, 191, 0, 0, 0, 0, 1035, 195, 0, 0, 0, 0, 1039, 440, 0, 0, 0, 0, 1249, 442)
+}
+point_count = 8
+
+[node name="mapa" type="Node2D" unique_id=1916362371]
+position = Vector2(-142, 6)
+script = ExtResource("1_q8ihy")
+inimigo_cena = ExtResource("1_2jh14")
+inimigo_rapido_cena = ExtResource("3_5d3jg")
+torre_cena = ExtResource("1_70f7c")
+inimigo_boss_cena = ExtResource("5_auc41")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=1086772127]
+position = Vector2(142, -8)
+texture = ExtResource("5_wan0n")
+centered = false
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1149574734]
+curve = SubResource("Curve2D_wan0n")
+
+[node name="TimerSpawn" type="Timer" parent="." unique_id=150396121]
+wait_time = 1.5
+autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=866480626]
+script = ExtResource("4_lrjei")
+
+[node name="LabelOuro" type="Label" parent="HUD" unique_id=187748661]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+
+[node name="LabelVida" type="Label" parent="HUD" unique_id=1747248436]
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 60.0
+offset_bottom = 73.0
+
+[node name="LabelOnda" type="Label" parent="HUD" unique_id=1923596080]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 60.0
+offset_bottom = 103.0
+
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]

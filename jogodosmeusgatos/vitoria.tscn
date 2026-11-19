@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cyd7byxqloppr"]
+
+[ext_resource type="Script" uid="uid://owjlytpja8uw" path="res://scriptsGD/vitoria.gd" id="1_boikj"]
+[ext_resource type="Texture2D" uid="uid://dlsiw3b6sq10" path="res://estrelas_pequenas.png" id="2_boikj"]
+[ext_resource type="Script" uid="uid://c8od7dpc4qrix" path="res://scriptsGD/fundo_estrelas.gd" id="3_g2kwo"]
+[ext_resource type="Texture2D" uid="uid://cho6vpmu7aoot" path="res://estrelas_grandes.png" id="4_xj7nm"]
+
+[node name="Vitoria" type="Control" unique_id=893420710]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_boikj")
+
+[node name="FundoEstrelas" type="Sprite2D" parent="." unique_id=1666995627]
+texture = ExtResource("2_boikj")
+script = ExtResource("3_g2kwo")
+
+[node name="FundoEstrelas" type="Sprite2D" parent="FundoEstrelas" unique_id=1335054678]
+texture = ExtResource("4_xj7nm")
+script = ExtResource("3_g2kwo")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=682775288]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1445311160]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1065383797]
+layout_mode = 2
+tooltip_text = "GAME OVER"
+mouse_filter = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "VOCÊ VENCEU!"
+horizontal_alignment = 1
+
+[node name="Again" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1607795017]
+layout_mode = 2
+text = "Tentar de novo."
+
+[node name="BotaoMenu" type="Button" parent="CenterContainer/VBoxContainer" unique_id=550511937]
+layout_mode = 2
+text = "Menu principal"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Again" to="." method="_on_button_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dcib2ul4mtycn"]
+
+[ext_resource type="Script" uid="uid://oip53kwgrjck" path="res://scriptsGD/bala.gd" id="1_ag3k0"]
+[ext_resource type="Texture2D" uid="uid://gjh2iot44feq" path="res://imagens/ataquegatos.png" id="2_ag3k0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
+radius = 8.0
+
+[node name="bala" type="Area2D" unique_id=808955228]
+script = ExtResource("1_ag3k0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=754573403]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ag3k0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1621863659]
+shape = SubResource("CircleShape2D_u0ya7")

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dosxuyt2td8eg"]
+
+[ext_resource type="Script" uid="uid://dqsulpvk7l8lt" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://bg10caskjx73c" path="res://imagens/gatojorgemenu.png" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://1wckg6b4uttj" path="res://imagens/gatolimenu.png" id="3_mae5d"]
+[ext_resource type="Texture2D" uid="uid://b6qiiwcxgbbil" path="res://imagens/menufundoV.png" id="4_4hy44"]
+
+[node name="Menu" type="Control" unique_id=862187653]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+foto_esquerda = ExtResource("2_ouk20")
+foto_direita = ExtResource("3_mae5d")
+castelo = ExtResource("4_4hy44")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2089395121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=356024215]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1027583959]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "TOWER DEFENSE DOS GATOS MAIS LINDO DO MUNDO"
+horizontal_alignment = 1
+
+[node name="Jogar" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2018987181]
+layout_mode = 2
+text = "Jogar"
+
+[node name="Creditos" type="Button" parent="CenterContainer/VBoxContainer" unique_id=131008858]
+layout_mode = 2
+text = "Creditos"
+
+[node name="Sair" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1313737549]
+layout_mode = 2
+text = "Sair"

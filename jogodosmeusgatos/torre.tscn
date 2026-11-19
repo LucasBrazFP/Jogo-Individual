@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://chkycic2osqkg"]
+
+[ext_resource type="Script" uid="uid://3unyolix5esj" path="res://scriptsGD/torre.gd" id="1_7phkw"]
+[ext_resource type="Texture2D" uid="uid://brx1viuaveuwp" path="res://icon.svg" id="1_n36cb"]
+[ext_resource type="PackedScene" uid="uid://dcib2ul4mtycn" path="res://bala.tscn" id="2_rvvv2"]
+[ext_resource type="Texture2D" uid="uid://c3vq5e0tunsss" path="res://imagens/gatojorgeidleP.png" id="3_1ac1g"]
+[ext_resource type="Texture2D" uid="uid://dun2evuc3f0pk" path="res://imagens/gatojorgeattackP.png" id="4_1ac1g"]
+[ext_resource type="Texture2D" uid="uid://cpa6udnng4qqu" path="res://imagens/gatoliidleP.png" id="5_grcfg"]
+[ext_resource type="Texture2D" uid="uid://bir7ic31rwmin" path="res://imagens/gatoliattackP.png" id="6_jvm8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
+radius = 150.0
+
+[node name="torre" type="Node2D" unique_id=546906418]
+script = ExtResource("1_7phkw")
+bala_cena = ExtResource("2_rvvv2")
+jorge_normal = ExtResource("3_1ac1g")
+jorge_atacando = ExtResource("4_1ac1g")
+li_normal = ExtResource("5_grcfg")
+li_atacando = ExtResource("6_jvm8e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1562334044]
+modulate = Color(0.3529412, 1, 0, 1)
+scale = Vector2(5.4, 5.4)
+texture = ExtResource("1_n36cb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=141502801]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=654771142]
+shape = SubResource("CircleShape2D_u0ya7")
+
+[node name="Timer" type="Timer" parent="." unique_id=1691748629]
+autostart = true
+
+[node name="AttackVisualTimer" type="Timer" parent="." unique_id=468583027]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

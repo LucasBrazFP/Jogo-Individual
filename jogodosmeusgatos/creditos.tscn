@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cjwug41oobjss"]
+
+[ext_resource type="Script" uid="uid://b58yfbvbpe3qg" path="res://scriptsGD/creditos.gd" id="1_ilafw"]
+[ext_resource type="Texture2D" uid="uid://bh6c7lmvkxfgv" path="res://imagens/gatolimenucreditos3.png" id="2_5h62i"]
+[ext_resource type="Script" uid="uid://c8od7dpc4qrix" path="res://scriptsGD/fundo_estrelas.gd" id="2_7flbs"]
+[ext_resource type="Texture2D" uid="uid://dlsiw3b6sq10" path="res://estrelas_pequenas.png" id="2_alf7g"]
+[ext_resource type="Texture2D" uid="uid://tom8u0qn6s4k" path="res://imagens/gatolicreditos2.png" id="3_u64um"]
+[ext_resource type="Texture2D" uid="uid://b2sdmxikhubqp" path="res://imagens/gatolicreditos.png" id="4_2votg"]
+[ext_resource type="Texture2D" uid="uid://cho6vpmu7aoot" path="res://estrelas_grandes.png" id="4_3rtis"]
+[ext_resource type="Texture2D" uid="uid://cyo4syesbi4df" path="res://imagens/gatojorgecreditos3.png" id="5_hp73q"]
+[ext_resource type="Texture2D" uid="uid://catjofbm6mur" path="res://imagens/gatojogecreditos.png" id="6_ntayh"]
+[ext_resource type="Texture2D" uid="uid://b2rjp72towply" path="res://imagens/gatojorgecreditos.png" id="6_u64um"]
+
+[node name="Creditos" type="Control" unique_id=1315452020]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ilafw")
+foto_superior_esquerda = ExtResource("2_5h62i")
+foto_meio_esquerda = ExtResource("3_u64um")
+foto_inferior_esquerda = ExtResource("4_2votg")
+foto_superior_direita = ExtResource("5_hp73q")
+foto_meio_direita = ExtResource("6_u64um")
+foto_inferior_direita = ExtResource("6_ntayh")
+
+[node name="FundoEstrelas" type="Sprite2D" parent="." unique_id=1072899259]
+texture = ExtResource("2_alf7g")
+script = ExtResource("2_7flbs")
+
+[node name="FundoEstrelas" type="Sprite2D" parent="FundoEstrelas" unique_id=1803591688]
+texture = ExtResource("4_3rtis")
+script = ExtResource("2_7flbs")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1283861841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1670375796]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=727767387]
+layout_mode = 2
+text = "
+Jogo desenvolvido por: Lucas Braz Fontinele Ponce
+Engine: Godot Engine
+Instutuição: Unisagrado
+Apoio acadêmico: Luis Filipe Grael Tinos"
+horizontal_alignment = 1
+
+[node name="Voltar" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1032107465]
+layout_mode = 2
+text = "Voltar"
